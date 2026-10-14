@@ -1,0 +1,339 @@
+/* ============================================================
+   БАЗОВІ НАЛАШТУВАННЯ ТА СКИДАННЯ
+   ============================================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #253254;
+    --primary-light: #34446e;
+    --accent: #17A398;
+    --accent-hover: #0E7C73;
+    --danger: #8E1B1B;
+    --bg-main: #F1F4F7;
+    --surface: #FFFFFF;
+    --text: #1B2230;
+    --text-muted: #536077;
+    --border: #DDE3EA;
+}
+
+body {
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg-main);
+    padding: 12px;
+}
+
+h1, h2, h3 {
+    font-family: 'Exo 2', sans-serif, Arial;
+    line-height: 1.25;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: clamp(1.4rem, 1rem + 1.8vw, 2.2rem); }
+h2 { font-size: clamp(1.2rem, 0.9rem + 1.2vw, 1.6rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin-bottom: 0.85rem; }
+a { color: var(--danger); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ============================================================
+   GRID КАРКАС СТОРІНКИ (Двовимірний макет)
+   ============================================================ */
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr 260px;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header  header   header"
+        "nav     nav      nav"
+        "sidebar content  aside"
+        "footer  footer   footer";
+    gap: 16px;
+    min-height: calc(100vh - 24px);
+}
+
+/* Прив'язка елементів до областей Grid */
+.header    { grid-area: header; }
+.top-nav   { grid-area: nav; }
+.sidebar   { grid-area: sidebar; }
+.main-area { grid-area: content; }
+.aside-ext { grid-area: aside; }
+.footer    { grid-area: footer; }
+
+/* Карткові блоки каркасу */
+.header, .top-nav, .sidebar, .main-area, .aside-ext, .footer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.header {
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header h1 { color: #fff; margin: 0; }
+.header .badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* ============================================================
+   FLEXBOX: ГОРИЗОНТАЛЬНЕ МЕНЮ
+   ============================================================ */
+.menu-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px; /* Мінімальна висота для мобільних пальців */
+    padding: 0 16px;
+    background: var(--bg-main);
+    color: var(--primary);
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-list a:hover,
+.menu-list a.active {
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ============================================================
+   FLEXBOX: КАРТКИ НАПРЯМІВ / КУРСІВ
+   ============================================================ */
+.cards-deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 1.2rem 0;
+}
+
+.card-item {
+    flex: 1 1 260px; /* Базова гнучка ширина картки */
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column; /* Внутрішній Flex для рівних кнопок */
+}
+
+.card-item img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.card-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    flex-grow: 1; /* Виштовхує кнопку на дно картки */
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 16px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+    text-decoration: none;
+}
+
+/* ============================================================
+   СПИСКИ, ТАБЛИЦІ ТА ФОРМИ
+   ============================================================ */
+.side-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-list a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: var(--bg-main);
+    color: var(--text);
+    font-weight: 500;
+}
+
+.side-list a:hover {
+    background: #e2e8f0;
+    text-decoration: none;
+}
+
+/* Адаптивна таблиця-обгортка для смартфонів */
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px; /* Забезпечує читабельність зі скролом */
+}
+
+table.data-table th,
+table.data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+table.data-table th {
+    background: #EAF0F6;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+table.data-table tr:hover td {
+    background: #fafafa;
+}
+
+/* Форми */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    min-height: 44px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Підвал */
+.footer {
+    background: var(--primary);
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ============================================================
+   МЕДІАЗАПИТИ (ТОЧКИ ЗЛАМУ)
+   ============================================================ */
+
+/* Планшетні екрани (до 960px): 2 колонки */
+@media (max-width: 960px) {
+    .grid-container {
+        grid-template-columns: 220px 1fr;
+        grid-template-areas:
+            "header  header"
+            "nav     nav"
+            "sidebar content"
+            "aside   aside"
+            "footer  footer";
+    }
+}
+
+/* Мобільні пристрої (до 640px): 1 колонка, повна мобільність */
+@media (max-width: 640px) {
+    body {
+        padding: 8px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "content"
+            "sidebar"
+            "aside"
+            "footer";
+        gap: 10px;
+    }
+
+    .menu-list {
+        flex-direction: column;
+    }
+
+    .menu-list a {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card-item {
+        flex: 1 1 100%; /* Картки займають весь екран телефону */
+    }
+
+    .header {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%; /* Зручна велика кнопка для великого пальця */
+    }
+}

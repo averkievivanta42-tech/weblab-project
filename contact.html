@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти та реєстрація — DevStack Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grid-container">
+
+    <header class="header">
+        <h1>Зв'язок з лабораторією</h1>
+        <span class="badge">Онлайн-запис</span>
+    </header>
+
+    <nav class="top-nav" aria-label="Головна навігація">
+        <ul class="menu-list">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="courses.html">Курси та програма</a></li>
+            <li><a href="contact.html" class="active">Контакти та реєстрація</a></li>
+        </ul>
+    </nav>
+
+    <aside class="sidebar">
+        <h2>Локація</h2>
+        <address style="font-style: normal; color: var(--text-muted); line-height: 1.8;">
+            м. Київ, вул. Політехнічна, 16<br>
+            Корпус № 20, ауд. 312<br>
+            <strong>Email:</strong> lab@kpi.ua<br>
+            <strong>Тел:</strong> +38 (044) 204-80-00
+        </address>
+    </aside>
+
+    <main class="main-area">
+        <h2>Форма реєстрації на практичний курс</h2>
+        <p>Заповніть форму нижче для запису на лабораторні роботи та отримання доступу до репозиторіїв курсу.</p>
+
+        <form action="#" method="post" style="margin-top: 1rem;">
+            <div class="form-group">
+                <label for="fullname">Прізвище та ім'я *</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Тарас Шевченко" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Електронна пошта *</label>
+                <input type="email" id="email" name="email" placeholder="student@kpi.ua" required>
+            </div>
+
+            <div class="form-group">
+                <label for="group">Академічна група *</label>
+                <input type="text" id="group" name="group" placeholder="ТА-41" required>
+            </div>
+
+            <div class="form-group">
+                <label for="track">Бажаний напрям навчання</label>
+                <select id="track" name="track">
+                    <option value="frontend">Frontend: HTML, CSS Grid/Flex, JS</option>
+                    <option value="backend">Backend: PHP, Node.js, REST API</option>
+                    <option value="fullstack">Fullstack інтеграція</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Коментар або запитання викладачу</label>
+                <textarea id="notes" name="notes" placeholder="Маю базовий досвід у верстці..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">Надіслати заявку</button>
+        </form>
+    </main>
+
+    <aside class="aside-ext">
+        <h2>Графік роботи</h2>
+        <p><strong>Пн – Пт:</strong> 09:00 — 18:00</p>
+        <p><strong>Сб – Нд:</strong> Вихідні дні</p>
+        <div style="background: #e3f4f1; padding: 10px; border-radius: 6px; margin-top: 10px;">
+            <p style="margin: 0; font-size: 0.85rem; color: #0E7C73;">Відповідь на заявку надходить протягом 2 робочих днів.</p>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <p>© 2026 DevStack Hub · Навчальний проект для демонстрації Grid, Flexbox та Медіазапитів</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
